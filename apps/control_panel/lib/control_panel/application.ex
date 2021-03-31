@@ -7,10 +7,7 @@ defmodule ControlPanel.Application do
 
   @impl true
   def start(_type, _args) do
-    children = [
-      # Starts a worker by calling: ControlPanel.Worker.start_link(arg)
-      # {ControlPanel.Worker, arg}
-    ]
+    children = [ControlPanel.Server]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
