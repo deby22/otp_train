@@ -7,7 +7,7 @@ defmodule RailroadWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_railroad_key",
-    signing_salt: "FFFmNhiU"
+    signing_salt: "AsUtJNLz"
   ]
 
   socket "/socket", RailroadWeb.UserSocket,

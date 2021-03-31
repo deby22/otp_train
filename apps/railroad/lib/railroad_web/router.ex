@@ -5,8 +5,11 @@ defmodule RailroadWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", RailroadWeb do
+  scope "/api/v2", RailroadWeb do
     pipe_through :api
+    get "/barrier", BarrierController, :index
+    get "/barrier/:name", BarrierController, :show
+    post "/barrier", BarrierController, :update
   end
 
   # Enables LiveDashboard only for development
