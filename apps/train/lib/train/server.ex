@@ -2,6 +2,14 @@ defmodule Train.Server do
   use GenServer
   alias Train.{Train, ControlPanelAPI}
 
+  @moduledoc """
+    Server to simulate train.
+
+    Implement two main functionality:
+      * change speed of train
+      * inform visiting station about arriving
+  """
+
   @speed_interval 5_000
   @station_interval 10_000
   def start_link(_) do

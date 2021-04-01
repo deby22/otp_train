@@ -1,10 +1,14 @@
 defmodule Train.Train do
   alias Decimal, as: D
-  @speed_range 1..1800
-  @stations Application.get_env(:train, :stations, [])
-
+  @speed_range 0..1800
+  @stations Application.compile_env(:train, :stations, [])
   defstruct [:station, :speed]
 
+  @moduledoc """
+    Core logic of train
+  """
+
+  @doc "Select random speed from range 0-180"
   @spec change_speed(%__MODULE__{}, fun()) :: %__MODULE__{}
   def change_speed(train, rand_fun) do
     speed =
@@ -15,6 +19,7 @@ defmodule Train.Train do
     %__MODULE__{train | speed: speed}
   end
 
+  @doc "Remember nearest station to arriving"
   @spec visit_station(%__MODULE__{}, fun()) :: %__MODULE__{}
   def visit_station(train, rand_fun) do
     station = rand_fun.(@stations)
