@@ -7,6 +7,7 @@ defmodule ControlPanel.Server do
   @moduledoc """
     OTP Server of ControlPanel
     Server logs every train change speed and every visit to station
+    After 10 seconds on arriving ControlPanel open last visited barrier
   """
 
   def start_link(_) do

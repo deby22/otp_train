@@ -1,6 +1,29 @@
 # ControlPanel
 
-**TODO: Add description**
+  OTP Server to communicate train and railroad barrier
+  Save every change on train speed or visit new station
+  Control Panel open barrier after 10 seconds on visiting train
+
+# Important
+
+This is a server-side application.
+There is no user interface
+
+# Logging
+
+* All busines information are logged as info in data.log
+* Anomalia like closed barrier is are logged in data.log
+* Errors, like invalid response from API are logged as errors in errors.log
+
+
+## Usage
+
+Open iex terminal
+
+```bash
+iex -S mix
+```
+
 
 ## Installation
 
@@ -14,8 +37,4 @@ def deps do
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/control_panel](https://hexdocs.pm/control_panel).
 
