@@ -16,10 +16,7 @@ defmodule RailroadWeb.FallbackController do
 
   # This clause is an example of how to handle resources that cannot be found.
   def call(conn, {:error, :not_found}) do
-    IO.inspect("heeeeeeeeere")
-
     conn
-    |> IO.inspect(label: "ssssss")
     |> put_status(:not_found)
     |> put_view(RailroadWeb.ErrorView)
     |> render(:"404")

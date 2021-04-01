@@ -4,9 +4,9 @@ defmodule Train.Train do
   @stations Application.compile_env(:train, :stations, [])
   defstruct [:station, :speed]
 
-  @moduledoc """
-    Core logic of train
-  """
+    @moduledoc """
+      Core logic of train
+    """
 
   @doc "Select random speed from range 0-180"
   @spec change_speed(%__MODULE__{}, fun()) :: %__MODULE__{}

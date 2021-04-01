@@ -1,11 +1,24 @@
 # Train
 
-**TODO: Add description**
+## Description
+
+Simple Server to simulate traing on railroad
+
+# Important
+
+This is a server-side application.
+There is no user interface
+All operations
+## Usage
+
+Open iex terminal
+
+```bash
+iex -S mix
+```
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `train` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
@@ -14,8 +27,3 @@ def deps do
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/train](https://hexdocs.pm/train).
-

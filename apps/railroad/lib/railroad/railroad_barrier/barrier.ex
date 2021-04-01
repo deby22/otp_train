@@ -2,6 +2,11 @@ defmodule Railroad.RailroadBarrier.Barrier do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @moduledoc """
+    Barrier schema contains name and status
+    Status could be just OPEN or CLOSED
+  """
+
   schema "barriers" do
     field :name, :string
     field :status, :string

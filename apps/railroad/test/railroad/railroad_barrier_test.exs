@@ -51,5 +51,16 @@ defmodule Railroad.RailroadBarrierTest do
       assert {:error, %Ecto.Changeset{}} = RailroadBarrier.update_barrier(barrier, @invalid_attrs)
       assert barrier == RailroadBarrier.get_barrier(barrier.name)
     end
+
+    test "try to set invalid status" do
+      barrier = barrier_fixture()
+
+      assert {:error, %Ecto.Changeset{} = changeset} =
+               RailroadBarrier.update_barrier(barrier, %{status: "invalid"})
+
+      assert [
+               status: {"is invalid", [validation: :inclusion, enum: ["OPEN", "CLOSED"]]}
+             ] == changeset.errors
+    end
   end
 end
