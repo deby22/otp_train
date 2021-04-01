@@ -25,6 +25,9 @@ defmodule Train.MixProject do
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [{:decimal, "~> 2.0"}]
+    [
+      {:decimal, "~> 2.0"},
+      {:control_panel, in_umbrella: true}
+    ]
   end
 end
