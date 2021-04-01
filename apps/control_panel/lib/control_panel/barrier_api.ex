@@ -1,7 +1,14 @@
 defmodule ControlPanel.BarrierAPI do
   use Tesla
 
-  @api_url Application.get_env(:railroad_barrier, :api_url)
+  @moduledoc """
+  API to communicate with Railroad API
+
+  # get /barrier/<name> to check current status
+  # post /barrier/ %{name: name, status: status} to open or close barrier
+  """
+
+  @api_url Application.compile_env(:railroad_barrier, :api_url)
 
   plug(Tesla.Middleware.BaseUrl, @api_url)
   plug(Tesla.Middleware.Headers, [{"accept", "application/json"}])

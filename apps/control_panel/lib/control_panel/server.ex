@@ -4,6 +4,11 @@ defmodule ControlPanel.Server do
   require Logger
   @closed_delay 5_000
 
+  @moduledoc """
+    OTP Server of ControlPanel
+    Server logs every train change speed and every visit to station
+  """
+
   def start_link(_) do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
   end

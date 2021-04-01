@@ -1,6 +1,10 @@
 defmodule ControlPanel.ControlPanel do
   alias ControlPanel.BarrierAPI
 
+  @moduledoc """
+    Main logic of control panel
+    Communicate with API and inform if all operations succed properly
+  """
   def change_train_speed(speed) do
     cond do
       speed <= 40 -> :slow
