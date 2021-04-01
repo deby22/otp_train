@@ -5,6 +5,7 @@ defmodule Train.Train do
 
   defstruct [:station, :speed]
 
+  @spec change_speed(%__MODULE__{}, fun()) :: %__MODULE__{}
   def change_speed(train, rand_fun) do
     speed =
       @speed_range
@@ -14,6 +15,7 @@ defmodule Train.Train do
     %__MODULE__{train | speed: speed}
   end
 
+  @spec visit_station(%__MODULE__{}, fun()) :: %__MODULE__{}
   def visit_station(train, rand_fun) do
     station = rand_fun.(@stations)
     %__MODULE__{train | station: station}

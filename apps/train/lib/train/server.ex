@@ -35,10 +35,4 @@ defmodule Train.Server do
     ControlPanelAPI.send_train_station(train)
     {:noreply, train}
   end
-
-  def handle_call(:train_info, _from, train) do
-    {:reply, train, train}
-  end
-
-  def train_info(), do: GenServer.call(__MODULE__, :train_info)
 end
