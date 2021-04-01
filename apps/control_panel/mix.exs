@@ -29,7 +29,8 @@ defmodule ControlPanel.MixProject do
     [
       {:tesla, "~> 1.4.0"},
       {:hackney, "~> 1.17.0"},
-      {:jason, ">= 1.0.0"}
+      {:jason, ">= 1.0.0"},
+      {:decimal, "~> 2.0"}
     ]
   end
 end

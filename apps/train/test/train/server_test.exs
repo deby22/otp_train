@@ -1,4 +1,4 @@
-defmodule TTrain.ServerTest do
+defmodule Train.ServerTest do
   alias Train.{Train, Server}
   use ExUnit.Case, async: false
   @stations Application.compile_env(:train, :stations, [])

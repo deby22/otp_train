@@ -7,8 +7,8 @@ defmodule ControlPanel.ControlPanel do
   """
   def change_train_speed(speed) do
     cond do
-      speed <= 40 -> :slow
-      speed <= 140 -> :normal
+      Decimal.lt?(speed, "40.1") -> :slow
+      Decimal.lt?(speed, "140.1") -> :normal
       true -> :fast
     end
   end
