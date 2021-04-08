@@ -18,7 +18,8 @@ defmodule OtpTrain.MixProject do
   defp deps do
     [
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 end

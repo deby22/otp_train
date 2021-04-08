@@ -30,7 +30,8 @@ defmodule ControlPanel.MixProject do
       {:tesla, "~> 1.4.0"},
       {:hackney, "~> 1.17.0"},
       {:jason, ">= 1.0.0"},
-      {:decimal, "~> 2.0"}
+      {:decimal, "~> 2.0"},
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 end

@@ -24,7 +24,7 @@ defmodule Railroad.MixProject do
   def application do
     [
       mod: {Railroad.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :logger_file_backend]
     ]
   end
 
@@ -46,7 +46,8 @@ defmodule Railroad.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 
