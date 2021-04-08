@@ -8,7 +8,7 @@ defmodule ControlPanel.BarrierAPI do
   # post /barrier/ %{name: name, status: status} to open or close barrier
   """
 
-  @api_url Application.compile_env(:railroad_barrier, :api_url)
+  @api_url Application.compile_env(:railroad, :api_url)
 
   plug(Tesla.Middleware.BaseUrl, @api_url)
   plug(Tesla.Middleware.Headers, [{"accept", "application/json"}])
