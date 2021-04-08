@@ -2,7 +2,7 @@ defmodule ControlPanel.Server do
   use GenServer
   alias ControlPanel.ControlPanel
   require Logger
-  @closed_delay 5_000
+  @closed_delay 10_000
 
   @moduledoc """
     OTP Server of ControlPanel

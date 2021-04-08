@@ -12,4 +12,23 @@ defmodule ControlPanel.ControlPanelTest do
     assert ControlPanel.change_train_speed(Decimal.new("160")) == :fast
     assert ControlPanel.change_train_speed(Decimal.new("180")) == :fast
   end
+
+  test "visit with valid station with OPEN barrier" do
+    assert {:ok, "CLOSED"} == ControlPanel.visit_station("valid OPEN")
+  end
+
+  test "visit with valid station with CLOSED barrier" do
+    station = "valid CLOSED"
+    msg = "[anomalia] Barrier '#{station}' should be opened"
+    assert {:error, msg} == ControlPanel.visit_station(station)
+  end
+
+  test "visit invalid station" do
+    assert {:error, "Unknown station: 'invalid'"} == ControlPanel.visit_station("invalid")
+  end
+
+  test "open valid barrier on valid station" do
+    station = "valid CLOSED"
+    assert {:ok, "OPEN"} == ControlPanel.open_barrier(station)
+  end
 end

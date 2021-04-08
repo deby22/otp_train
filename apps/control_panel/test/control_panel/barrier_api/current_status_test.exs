@@ -1,4 +1,4 @@
-defmodule ControlPanel.BarrierAPITest do
+defmodule ControlPanel.BarrierAPI.CurrentStatusTest do
   use ExUnit.Case
   alias ControlPanel.BarrierAPI
 
@@ -22,10 +22,20 @@ defmodule ControlPanel.BarrierAPITest do
     end
   end
 
-  defp mock_tesla(status) do
+  describe "unknown station" do
+    setup do
+      mock_tesla("", 404)
+    end
+
+    test "visit station " do
+      assert {:error, "Unknown station: 'Alfred'"} == BarrierAPI.current_barrier_status("Alfred")
+    end
+  end
+
+  defp mock_tesla(status, status_code \\ 200) do
     Tesla.Mock.mock(fn
       %{method: :get} ->
-        %Tesla.Env{status: 200, body: %{"status" => status}}
+        %Tesla.Env{status: status_code, body: %{"status" => status}}
     end)
 
     :ok

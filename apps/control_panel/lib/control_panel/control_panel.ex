@@ -21,19 +21,24 @@ defmodule ControlPanel.ControlPanel do
     end
   end
 
+  @spec open_barrier(any) :: {:error, <<_::64, _::_*8>>} | {:ok, any}
   def open_barrier(station) do
-    BarrierAPI.open_barrier(station)
+    barrier_api().open_barrier(station)
   end
 
   defp current_barrier_status(station) do
-    BarrierAPI.current_barrier_status(station)
+    barrier_api().current_barrier_status(station)
   end
 
   defp opened_barrier(station) do
-    {:ok, BarrierAPI.close_barrier(station)}
+    barrier_api().close_barrier(station)
   end
 
   defp closed_barrier(station) do
     {:error, "[anomalia] Barrier '#{station}' should be opened"}
+  end
+
+  defp barrier_api() do
+    Application.get_env(:control_panel, :barrier_api, BarrierAPI)
   end
 end
