@@ -1,4 +1,4 @@
-defmodule Train.ControlPanelAPI do
+defmodule Train.TrainManager.ControlPanelAPI do
   @control_panel ControlPanel.Server
 
   @moduledoc """

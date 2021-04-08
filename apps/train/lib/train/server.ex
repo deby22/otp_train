@@ -1,6 +1,6 @@
 defmodule Train.Server do
   use GenServer
-  alias Train.{Train, ControlPanelAPI}
+  alias Train.TrainManager
 
   @moduledoc """
     Server to simulate train.
@@ -27,20 +27,18 @@ defmodule Train.Server do
   def init(_) do
     change_speed_periodically()
     visit_station_periodically()
-    {:ok, %Train{}}
+    {:ok, TrainManager.init_train()}
   end
 
   def handle_info(:change_speed, train) do
     change_speed_periodically()
-    train = Train.change_speed(train, &Enum.random/1)
-    ControlPanelAPI.send_train_speed(train)
+    train = TrainManager.change_speed(train)
     {:noreply, train}
   end
 
   def handle_info(:visit_station, train) do
     visit_station_periodically()
-    train = Train.visit_station(train, &Enum.random/1)
-    ControlPanelAPI.send_train_station(train)
+    train = TrainManager.visit_station(train)
     {:noreply, train}
   end
 end

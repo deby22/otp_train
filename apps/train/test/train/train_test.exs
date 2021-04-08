@@ -1,5 +1,5 @@
 defmodule Train.TrainTest do
-  alias Train.Train
+  alias Train.TrainManager.Train
   use ExUnit.Case
 
   test "change speed" do
