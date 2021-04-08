@@ -27,8 +27,8 @@ defmodule Train.MixProject do
   defp deps do
     [
       {:decimal, "~> 2.0"},
-      {:logger_file_backend, "~> 0.0.10"}
-      # {:control_panel, in_umbrella: true}
+      {:logger_file_backend, "~> 0.0.10"},
+      {:control_panel, in_umbrella: true}
     ]
   end
 end
