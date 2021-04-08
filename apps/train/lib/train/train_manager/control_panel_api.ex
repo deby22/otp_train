@@ -6,10 +6,10 @@ defmodule Train.TrainManager.ControlPanelAPI do
   """
 
   def send_train_speed(train) do
-    GenServer.cast(@control_panel, {:change_speed, train.speed})
+    GenServer.cast(@control_panel, {:actual_speed, train.speed})
   end
 
   def send_train_station(train) do
-    GenServer.cast(@control_panel, {:visit_station, train.station})
+    GenServer.cast(@control_panel, {:train_station, train.station})
   end
 end

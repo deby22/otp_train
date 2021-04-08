@@ -1,13 +1,12 @@
 defmodule ControlPanel.Server do
   use GenServer
-  alias ControlPanel.ControlPanel
-  require Logger
+  alias ControlPanel.Processor
   @closed_delay 10_000
 
   @moduledoc """
-    OTP Server of ControlPanel
-    Server logs every train change speed and every visit to station
-    After 10 seconds on arriving ControlPanel open last visited barrier
+    OTP Server of ControlPanel.
+    Get information on every train change and pass it to processor.
+   After 10 seconds on arriving ControlPanel open last visited barrier
   """
 
   def start_link(_) do
@@ -18,32 +17,20 @@ defmodule ControlPanel.Server do
     {:ok, nil}
   end
 
-  def handle_cast({:change_speed, speed}, nil) do
-    metadata = ControlPanel.change_train_speed(speed)
-    # metadata speed
-    Logger.info("Current train speed: #{speed}", speed: metadata)
+  def handle_cast({:actual_speed, speed}, nil) do
+    Processor.log_actual_speed(speed)
     {:noreply, nil}
   end
 
-  def handle_cast({:visit_station, station}, nil) do
+  def handle_cast({:train_station, station}, nil) do
     # metadata nazwa stacji
-    Logger.info("The train is approaching the station #{station}", station: station)
-
-    with {:error, msg} <- ControlPanel.visit_station(station) do
-      Logger.error(msg)
-    end
-
+    Processor.log_train_station(station)
     Process.send_after(self(), {:open_barrier, station}, @closed_delay)
     {:noreply, nil}
   end
 
   def handle_info({:open_barrier, station}, _) do
-    Logger.info("Open barrier on station #{station}")
-
-    with {:error, msg} <- ControlPanel.open_barrier(station) do
-      Logger.error(msg)
-    end
-
+    Processor.open_barrier(station)
     {:noreply, nil}
   end
 end

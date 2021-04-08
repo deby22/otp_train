@@ -22,7 +22,7 @@ defmodule ControlPanel.BarrierAPI.OpenBarrierTest do
     end
   end
 
-  defp mock_tesla(status, status_code \\ 200) do
+  defp mock_tesla(status, status_code) do
     Tesla.Mock.mock(fn
       %{method: :post} ->
         %Tesla.Env{status: status_code, body: %{"status" => status}}
