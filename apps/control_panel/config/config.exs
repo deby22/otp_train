@@ -12,11 +12,6 @@ config :logger,
     {LoggerFileBackend, :panel_log}
   ]
 
-# config :logger, :default_log,
-#   path: "data.log",
-#   format: "$time [$metadata] $message\n",
-#   metadata: [:speed, :station]
-
 config :logger, :panel_log,
   path: "data.log",
   format: "$time [$level] [$metadata] $message\n",
