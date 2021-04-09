@@ -57,6 +57,25 @@ cd apps/railroad/
 mix phx.server
 ```
 
+## Test
 
+You can test all application at once by using
 
+```bash
+mix test
+```
 
+If you want more information
+
+```bash
+mix test --cover
+```
+
+## Code analyze
+
+Project is designed with best practice as credo and typespec from dialyzer
+
+```bash
+mix credo
+mix dialyzer
+```

@@ -10,11 +10,8 @@ defmodule Train.Server do
       * inform visiting station about arriving
   """
 
-  # @speed_interval 10_000
-  # @station_interval 180_000
-
-  @speed_interval 1_000
-  @station_interval 3_000
+  @speed_interval 10_000
+  @station_interval 180_000
   def start_link(_) do
     GenServer.start_link(__MODULE__, :ok, name: __MODULE__)
   end
