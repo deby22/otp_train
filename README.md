@@ -29,6 +29,29 @@ This is Umbrella project to aggregate 3 microservices
 * All information are logged into console
 * Only control_panel information are logged to file 
 
+## Install
+
+```bash
+mix do deps.get, compile
+mix ecto.setup
+```
+
+If you have permission error, try sudo
+
+```bash
+sudo mix do deps.get, compile 
+sudo mix ecto.setup
+```
+
+We also prefer using apps via Docker
+
+## Usage app via docker
+
+```bash
+docker-compose build
+docker-compose up
+docker-compose otp-traing mix ecto.setup
+```
 ## Usage
  
  There is 2 way to run application.

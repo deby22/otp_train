@@ -13,6 +13,17 @@ config :railroad, RailroadWeb.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
+config :railroad, Railroad.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "railroad_prod",
+  # hostname: "localhost",
+  hostname: "postgres",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
+
+
 # Do not print debug messages in production
 config :logger, level: :info
 

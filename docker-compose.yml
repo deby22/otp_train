@@ -23,6 +23,7 @@ services:
         build: .
         # we set multiple ports as each of our application (but database) will use a different port
         ports:
+            - "4000:4000"
             - "4001:4001"
             - "4002:4002"
             - "4003:4003"
@@ -35,7 +36,7 @@ services:
         volumes:
             - ".:/app"
             - "/app/deps"
-            - "/app/apps/admin/assets/node_modules"
+            # - "/app/apps/admin/assets/node_modules"
         # the container will not start if the postgres container isn't running
         depends_on:
             - postgres

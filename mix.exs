@@ -6,7 +6,8 @@ defmodule OtpTrain.MixProject do
       apps_path: "apps",
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
     ]
   end
 
@@ -22,4 +23,11 @@ defmodule OtpTrain.MixProject do
       {:logger_file_backend, "~> 0.0.10"}
     ]
   end
+
+  defp aliases do
+    [
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run apps/railroad/priv/repo/seeds.exs"],
+    ]
+  end
+
 end

@@ -5,7 +5,8 @@ config :railroad, Railroad.Repo,
   username: "postgres",
   password: "postgres",
   database: "railroad_dev",
-  hostname: "localhost",
+  # hostname: "localhost",
+  hostname: "postgres",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
