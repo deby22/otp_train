@@ -26,8 +26,7 @@ defmodule OtpTrain.MixProject do
 
   defp aliases do
     [
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run apps/railroad/priv/repo/seeds.exs"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run apps/railroad/priv/repo/seeds.exs"]
     ]
   end
-
 end

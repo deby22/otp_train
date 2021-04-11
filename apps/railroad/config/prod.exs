@@ -22,8 +22,6 @@ config :railroad, Railroad.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
-
-
 # Do not print debug messages in production
 config :logger, level: :info
 
